@@ -1,6 +1,8 @@
 # tambola-generator
 A library for generating tambola tickets and the draw sequence
 
+[Home / demo page](http://tambolatickets.herokuapp.com/)
+
 ## Installation
 We use **npm** for dependency management, run
 
