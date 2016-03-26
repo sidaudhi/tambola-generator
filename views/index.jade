@@ -1,0 +1,27 @@
+html
+  head
+    style(type="text/css")
+  body(style="margin:20px 10px;word-break:break-all;font-family:'Arial'")
+    h1(style="text-align:center") Tambola Ticket & Draw Generator
+    p(style="text-align:center") A library for generating tambola tickets and the draw sequence
+      br
+      a(href="https://github.com/sidaudhi/tambola-generator") Code on Github
+    
+    div
+      div(class="container")
+        div(class="row",style="text-align:center")
+          each ticket in tickets
+            table(class="table table-bordered table-responsive" border="1" cellspacing="0" cellpadding="0" style="margin:10px;display:inline-block;")
+              each row in ticket
+                tr
+                  each number in row
+                    td(class="text-center",style="width:40px;height:40px;text-align:center")
+                      if number != 0
+                        span #{number}
+                      else
+                        span &nbsp;
+      
+    h1(style="text-align:center") Sequence
+    h4(style="text-align:center;width:60%;min-width:320px;margin:auto;") 
+      each number in sequence
+        span(style="padding:8px;box-sizing:border-box;display:inline-block;background-color:#2e2e2e;color:#FFF;margin:2px;border-radius:50%;min-width:35px;") #{number}
