@@ -19,7 +19,7 @@ In your NodeJS application, require the module:
 var tambola = require('tambola-generator').default;
 ```
 
-To get tickets, use the getTickets(count) method:
+To get tickets, use the generateTickets(count) method:
 
 ```shell
 tambola.generateTickets(100) //This generates 100 tambola tickets
