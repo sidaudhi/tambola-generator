@@ -1,9 +1,10 @@
 # tambola-generator
-A library for generating tambola tickets and the draw sequence
 
+A library for generating tambola tickets and the draw sequence
 [Home / demo page](http://tambolatickets.herokuapp.com/)
 
 ## Installation
+
 We use **npm** for dependency management, run
 
 ```shell
@@ -11,22 +12,27 @@ npm install --save tambola-generator
 ```
 
 ## Usage
+
 In your NodeJS application, require the module:
+
 ```shell
 var tambola = require('tambola-generator');
 ```
 
 To get tickets, use the getTickets(count) method:
+
 ```shell
 tambola.getTickets(100) //This generates 100 tambola tickets
 ```
 
 To get the draw sequence, use the getDrawSequence() method:
+
 ```shell
 tambola.getDrawSequence() //Returns numbers 1-90 scrambled
 ```
 
 ## JSON
+
 ```shell
 // Tickets array
 [
@@ -42,6 +48,7 @@ tambola.getDrawSequence() //Returns numbers 1-90 scrambled
   ]
 ]
 ```
+
 ```shell
 // Draw Sequence
 [72,65,47,89,42,4,61,84,36,22,37,18,9,27,
@@ -52,3 +59,28 @@ tambola.getDrawSequence() //Returns numbers 1-90 scrambled
 76,1,10,24,19,64,85,7,74,2,16,63,88,23,57
 ,87,81,82,20,75]
 ```
+
+## Rules
+
+A ticket consists of a random distribution of 15 numbers
+between 1-90 in a 3x9 grid
+
+- RULE #1 - Each row cannot have more than 5 numbers
+- RULE #2 - Each column is assigned a range of numbers only: 1-10 can appear only in column 1, 11-20 can appear only in column 2, 81-90 can appear only in column 9
+- RULE #3 - In a specific column, numbers must be arranged in ascending order
+  from top to bottom
+- RULE #4 - Each column must have at least 1 number
+
+## Algorithm
+
+- Generate a grouped list of numbers from 1-90, grouped by every 10th number. Each group corresponds to a column of the ticket.
+- Generate a 2D array of 3 rows and 9 columns filled with 0s.
+- For each column of the ticket, randomly choose a row and number from the grouped list above.
+  - If the row is not already full (<5) and the number in that location is 0,
+    - Insert the chosen number
+    - Delete the chosen number from the grouped list
+- Recursively, loop through all rows and colums of the ticket:
+  - Generate a random chance value as a boolean.
+  - If the row is not already full (<5) and the column is not already full (<3) and the random chance is true and the value at the location is 0
+    - Insert the chosen number
+    - Delete the chosen number from the grouped list
