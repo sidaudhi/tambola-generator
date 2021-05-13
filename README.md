@@ -16,7 +16,7 @@ npm install --save tambola-generator
 In your NodeJS application, require the module:
 
 ```shell
-var tambola = require('tambola-generator');
+var tambola = require('tambola-generator').default;
 ```
 
 To get tickets, use the getTickets(count) method:
