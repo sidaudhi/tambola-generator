@@ -1,7 +1,7 @@
 # tambola-generator
 
 A library for generating tambola tickets and the draw sequence
-[Home / demo page](http://tambolatickets.herokuapp.com/)
+[Home / demo page](http://tambola-generator-demo.herokuapp.com/)
 
 ## Installation
 
@@ -22,7 +22,7 @@ var tambola = require('tambola-generator');
 To get tickets, use the getTickets(count) method:
 
 ```shell
-tambola.getTickets(100) //This generates 100 tambola tickets
+tambola.generateTickets(100) //This generates 100 tambola tickets
 ```
 
 To get the draw sequence, use the getDrawSequence() method:
