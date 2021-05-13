@@ -30,7 +30,7 @@ class Tambola {
    * Draw generation
    * @returns sequence of Tambola numbers 1-90
    */
-  static generateDraw() {
+  static getDrawSequence() {
     const sequence = [];
     const allNumbers = new Array(90).fill(0).map((n, i) => i + 1);
     for (var i = 0; i < 90; i++) {
